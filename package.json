@@ -17,6 +17,7 @@
         "vue": "^3.3.4"
     },
     "dependencies": {
-        "@inertiajs/progress": "^0.2.7"
+        "@inertiajs/progress": "^0.2.7",
+        "@vue/runtime-core": "^3.3.4"
     }
 }
