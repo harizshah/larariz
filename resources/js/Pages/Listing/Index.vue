@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-
 import Listing from '@/Pages/Listing/Index/Components/Listing.vue'
 import Pagination from '@/Components/UI/Pagination.vue'
 defineProps({
