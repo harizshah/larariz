@@ -24,6 +24,8 @@ const filterForm = reactive({
 })
 // reactive / ref / computed
 watch(
+    // 0.5s - cancelled
+    //
     filterForm, debounce( () => router.get(
         route('realtor.listing.index'),
         filterForm,
