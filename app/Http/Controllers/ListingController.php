@@ -27,6 +27,7 @@ class ListingController extends Controller
                 ]),
                 'listings' => Listing::orderByDesc('created_at')
                     ->paginate(10)
+                    ->withQueryString()
             ]
         );
     }
