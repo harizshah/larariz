@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ListingOfferController;
 use App\Http\Controllers\UserAccountController;
 use App\Http\Controllers\RealtorListingController;
 use App\Http\Controllers\ListingController;
@@ -25,6 +26,10 @@ Route::get('/hello', [IndexController::class, 'show'])
 
 Route::resource('listing', ListingController::class)
     ->only(['index', 'show']);
+
+Route::resource('listing.offer', ListingOfferController::class)
+    ->middleware('auth')
+    ->only(['store']);
 
 Route::get('login', [AuthController::class, 'create'])
     ->name('login');
