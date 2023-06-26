@@ -43,7 +43,7 @@ const form = useForm({
 
 const makeOffer = () => form.post(
     route('listing.offer.store',
-        { listing: props.listingId },
+        {listing: props.listingId},
     ),
     {
         preserveScroll: true,
