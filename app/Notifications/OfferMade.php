@@ -2,6 +2,7 @@
 
 namespace App\Notifications;
 
+use App\Models\Offer;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -16,9 +17,9 @@ class OfferMade extends Notification
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        private Offer $offer
+    ) {
     }
 
     /**
@@ -29,7 +30,7 @@ class OfferMade extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['database'];
     }
 
     /**
@@ -55,7 +56,10 @@ class OfferMade extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'offer_id' => $this->offer->id,
+            'listing_id' => $this->offer->listing_id,
+            'amount' => $this->offer->amount,
+            'bidder_id' => $this->offer->bidder_id
         ];
     }
 }
